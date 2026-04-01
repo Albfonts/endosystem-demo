@@ -1,42 +1,43 @@
-# 🎗 EndoSystem - MVP (Demo)
+# 🎗️ EndoSystem - MVP (Demo)
 
-**EndoSystem** es una aplicación web *mobile-first* diseñada para el seguimiento diario y soporte de pacientes con endometriosis. Este proyecto nace de una necesidad real y se desarrolla bajo un enfoque de diseño centrado en el usuario (UX) y arquitectura escalable.
-
----
-
-## 🚀 Objetivo del Proyecto
-Proporcionar una herramienta técnica que valide síntomas, registre niveles de dolor y ofrezca un "Modo Crisis" de alta eficiencia para momentos críticos, garantizando que la usuaria mantenga siempre el control total sobre sus datos de salud.
-
-## 🛠️ Stack Tecnológica (Evolución)
-Actualmente, el proyecto se encuentra en su fase inicial de prototipado funcional:
-
-- **Fase Actual:** HTML5 Semántico y CSS3 (Arquitetura Mobile-First).
-- **Roadmap Técnico:** - [ ] Lógica de persistencia con **JavaScript (ES6+)**.
-  - [ ] Tipado de dominio con **TypeScript**.
-  - [ ] Migración a framework **Angular** (Componentización modular).
-  - [ ] Backend con **FastAPI** y base de datos **PostgreSQL**.
-
-## ✨ Funcionalidades Destacadas 
-
-### 📱 Arquitectura Mobile-First
-Diseñado específicamente para dispositivos móviles, utilizando **Flexbox** y **CSS Grid** para asegurar una interfaz fluida y accesible en cualquier pantalla.
-
-### 🚨 Modo Crisis (3-Taps Flow)
-Funcionalidad diseñada para ser activada en momentos de dolor intenso. La interfaz se simplifica para permitir el registro de una crisis en un máximo de **3 interacciones**, minimizando el esfuerzo cognitivo y físico de la usuaria.
-
-### 🔐 Privacidad y Control
-Inspirado en la integridad de datos que manejo diariamente en sistemas **ERP (Sabium)**, el EndoSystem está proyectado para que el intercambio de información (EndoRed) sea estrictamente *opt-in*, protegiendo la sensibilidad de los datos de salud.
-
-## 📁 Estructura del Repositorio
-- `index.html`: Estructura semántica de las pantallas principales.
-- `style.css`: Sistema de diseño responsivo y variables CSS para mantenibilidad.
-- `README.md`: Documentación técnica y roadmap de desarrollo.
+**EndoSystem** é uma aplicação web *mobile-first* projetada para o acompanhamento diário e suporte de pacientes com endometriose. Este projeto nasce de uma necessidade real e é desenvolvido sob um foco de design centrado no usuário (UX) e arquitetura escalável.
 
 ---
 
-## 👨‍💻 Sobre el Autor
-**Daniel Albor Fontes** Estudiante de Análisis y Desarrollo de Sistemas (FAG - Cascavel/PR).  
-En transición estructurada hacia el desarrollo **Front-End**, aplicando rigor operativo y lógico en cada línea de código.
+## 🚀 Objetivo do Projeto
+Proporcionar uma ferramenta técnica que valide sintomas, registre níveis de dor e ofereça um "Modo Crise" de alta eficiência para momentos críticos, garantizando que a usuária mantenha sempre o controle total sobre seus dados de saúde.
+
+## 🛠️ Stack Tecnológica
+Atualmente, o projeto encontra-se em sua fase inicial de prototipação funcional:
+
+- **Fase Atual:** HTML5 Semântico e CSS3 (Arquitetura Mobile-First).
+- **Roadmap Técnico:** - [ ] Lógica de persistência com **JavaScript (ES6+)**.
+  - [ ] Tipagem de domínio com **TypeScript**.
+  - [ ] Migração para o framework **Angular** (Componentização modular).
+  - [ ] Backend com **FastAPI** e banco de dados **PostgreSQL**.
+
+## ✨ Funcionalidades Destacadas
+
+### 📱 Arquitetura Mobile-First
+Projetado especificamente para dispositivos móveis, utilizando **Flexbox** e **CSS Grid** para assegurar uma interface fluida e acessível em qualquer tela.
+
+### 🚨 Modo Crise (3-Taps Flow)
+Funcionalidade projetada para ser ativada em momentos de dor intensa. A interface é simplificada para permitir o registro de uma crise em no máximo **3 interações**, minimizando o esforço cognitivo e físico da usuária.
+
+### 🔐 Privacidade e Controle
+Inspirado na integridade de dados que gerencio diariamente em sistemas **ERP (Sabium)**, o EndoSystem é projetado para que o compartilhamento de informações (EndoRed) seja estritamente *opt-in*, protegendo a sensibilidade dos dados de saúde.
+
+## 📁 Estrutura do Repositório
+- `index.html`: Estrutura semântica das telas principais.
+- `style.css`: Sistema de design responsivo e variáveis CSS para manutenibilidade.
+- `README.md`: Documentação técnica e roadmap de desenvolvimento.
 
 ---
-*Este es un proyecto de portafolio para demostrar habilidades técnicas en HTML/CSS, Git y planificación de software.*
+
+## 👨‍💻 Sobre o Autor
+**Daniel Albor Fontes** Estudante de Análise e Desenvolvimento de Sistemas (FAG - Cascavel/PR).  
+Em transição estruturada para o desenvolvimento **Front-End**, aplicando rigor operacional e lógico em cada linha de código.
+
+---
+*Este é um projeto de portfólio para demonstrar habilidades técnicas em HTML/CSS, Git e planejamento de software.*
+ 
