@@ -1,4 +1,4 @@
-# 🌸 EndoSystem - MVP (Demo)
+# 🎗 EndoSystem - MVP (Demo)
 
 **EndoSystem** es una aplicación web *mobile-first* diseñada para el seguimiento diario y soporte de pacientes con endometriosis. Este proyecto nace de una necesidad real y se desarrolla bajo un enfoque de diseño centrado en el usuario (UX) y arquitectura escalable.
 
