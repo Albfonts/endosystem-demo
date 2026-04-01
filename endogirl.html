@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>EndoSystem | Check-in</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;1,300;1,400&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="phone-frame">
+    <div class="screen" id="screen-checkin">
+      <header class="app-header">
+        <div class="header-top">
+          <div>
+            <div class="greeting-mono">EndoSystem | check-in</div>
+            <div class="greeting-name">Ola, <em>EndoGirl</em></div>
+          </div>
+          <div class="ciclo-badge">
+            <span class="ciclo-label">Ciclo atual</span>
+            <span class="ciclo-value" id="cycle-badge-text">Lutea | dia 22</span>
+          </div>
+        </div>
+        <p class="main-question">Como esta seu corpo agora?</p>
+      </header>
+
+      <section class="pain-section">
+        <div class="section-label">Passo 1 | intensidade da dor</div>
+        <div class="pain-scale-wrap">
+          <div class="pain-scale" id="pain-scale">
+            <button class="pain-btn" data-level="1" type="button" onclick="selectPain(1)">1</button>
+            <button class="pain-btn" data-level="2" type="button" onclick="selectPain(2)">2</button>
+            <button class="pain-btn" data-level="3" type="button" onclick="selectPain(3)">3</button>
+            <button class="pain-btn" data-level="4" type="button" onclick="selectPain(4)">4</button>
+            <button class="pain-btn" data-level="5" type="button" onclick="selectPain(5)">5</button>
+            <button class="pain-btn" data-level="6" type="button" onclick="selectPain(6)">6</button>
+            <button class="pain-btn" data-level="7" type="button" onclick="selectPain(7)">7</button>
+            <button class="pain-btn" data-level="8" type="button" onclick="selectPain(8)">8</button>
+            <button class="pain-btn" data-level="9" type="button" onclick="selectPain(9)">9</button>
+            <button class="pain-btn" data-level="10" type="button" onclick="selectPain(10)">10</button>
+          </div>
+          <button class="pain-btn pain-btn--crisis" data-level="20" type="button" onclick="selectPain(20)">20</button>
+        </div>
+        <div class="pain-legend">
+          <span class="legend-item">leve</span>
+          <span class="legend-item">moderada</span>
+          <span class="legend-item">forte</span>
+          <span class="legend-item legend-item--crisis">crise</span>
+        </div>
+        <div class="pain-feedback" id="pain-feedback"></div>
+      </section>
+
+      <section class="symptoms-section">
+        <div class="section-label">Passo 2 | o que mais esta presente</div>
+        <div class="symptoms-grid">
+          <button class="symptom-tag" id="tag-inflamacao" type="button" onclick="toggleSymptom('inflamacao','active-rose',this)">
+            <div class="tag-icon">IN</div>
+            <div class="tag-info">
+              <span class="tag-name">Inflamacao</span>
+              <span class="tag-note" id="note-inflamacao">Inchaco, pressao ou tensao no abdomen.</span>
+            </div>
+            <div class="tag-check" id="check-inflamacao"></div>
+          </button>
+
+          <button class="symptom-tag" id="tag-dor" type="button" onclick="toggleSymptom('dor','active-rose',this)">
+            <div class="tag-icon">DI</div>
+            <div class="tag-info">
+              <span class="tag-name">Dor intensa</span>
+              <span class="tag-note" id="note-dor">Pelvica, lombar ou irradiada. Tudo conta.</span>
+            </div>
+            <div class="tag-check" id="check-dor"></div>
+          </button>
+
+          <button class="symptom-tag" id="tag-fadiga" type="button" onclick="toggleSymptom('fadiga','active-amber',this)">
+            <div class="tag-icon">FA</div>
+            <div class="tag-info">
+              <span class="tag-name">Fadiga</span>
+              <span class="tag-note" id="note-fadiga">Nao e preguica. E seu corpo lutando.</span>
+            </div>
+            <div class="tag-check" id="check-fadiga"></div>
+          </button>
+
+          <button class="symptom-tag" id="tag-depressao" type="button" onclick="toggleSymptom('depressao','active-violet',this)">
+            <div class="tag-icon">PE</div>
+            <div class="tag-info">
+              <span class="tag-name">Peso emocional</span>
+              <span class="tag-note" id="note-depressao">Tristeza, ansiedade ou sobrecarga. Tudo vale.</span>
+            </div>
+            <div class="tag-check" id="check-depressao"></div>
+          </button>
+        </div>
+      </section>
+
+      <section class="context-section">
+        <div class="section-label">Contexto do dia | opcional</div>
+
+        <div class="context-block">
+          <span class="context-label">Sono</span>
+          <div class="chip-row" id="sleep-chips">
+            <button class="context-chip" type="button" data-group="sleep" data-value="bom" onclick="selectContextChip('sleep','bom',this)">Bem</button>
+            <button class="context-chip" type="button" data-group="sleep" data-value="medio" onclick="selectContextChip('sleep','medio',this)">Regular</button>
+            <button class="context-chip" type="button" data-group="sleep" data-value="ruim" onclick="selectContextChip('sleep','ruim',this)">Mal</button>
+          </div>
+        </div>
+
+        <div class="context-block">
+          <span class="context-label">Estresse</span>
+          <div class="chip-row" id="stress-chips">
+            <button class="context-chip" type="button" data-group="stress" data-value="baixo" onclick="selectContextChip('stress','baixo',this)">Baixo</button>
+            <button class="context-chip" type="button" data-group="stress" data-value="medio" onclick="selectContextChip('stress','medio',this)">Medio</button>
+            <button class="context-chip" type="button" data-group="stress" data-value="alto" onclick="selectContextChip('stress','alto',this)">Alto</button>
+          </div>
+        </div>
+
+        <div class="context-block">
+          <span class="context-label">Comida gatilho hoje</span>
+          <div class="chip-row" id="food-chips">
+            <button class="context-chip" type="button" data-group="food" data-value="nao" onclick="selectContextChip('food','nao',this)">Nao</button>
+            <button class="context-chip" type="button" data-group="food" data-value="talvez" onclick="selectContextChip('food','talvez',this)">Talvez</button>
+            <button class="context-chip" type="button" data-group="food" data-value="sim" onclick="selectContextChip('food','sim',this)">Sim</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="cycle-section">
+        <div class="section-label">Fase manual do ciclo</div>
+        <div class="cycle-grid">
+          <label class="field-card">
+            <span class="field-label">Fase</span>
+            <select id="cycle-phase" class="field-input" onchange="updateCycleSelection()">
+              <option value="menstrual">Menstrual</option>
+              <option value="folicular">Folicular</option>
+              <option value="ovulatoria">Ovulatoria</option>
+              <option value="lutea" selected>Lutea</option>
+            </select>
+          </label>
+
+          <label class="field-card">
+            <span class="field-label">Dia</span>
+            <input id="cycle-day" class="field-input" type="number" min="1" max="40" value="22" onchange="updateCycleSelection()">
+          </label>
+        </div>
+        <p class="cycle-help" id="cycle-help-text">Fase lutea: hoje o foco e reduzir inflamacao, descansar e nao se cobrar tanto.</p>
+      </section>
+
+      <section class="support-section">
+        <div class="section-label">Modo Sola | apoio imediato</div>
+        <div class="support-card" id="support-card">
+          Escolha seu nivel de dor para ver um plano curto e concreto para agora.
+        </div>
+      </section>
+
+      <div class="submit-section">
+        <button class="btn-register" id="btn-register" type="button" onclick="registrar()" disabled>
+          Registrar como estou agora
+        </button>
+        <button class="btn-crisis" type="button" onclick="showCrisis()">
+          Estou em crise | preciso de ajuda agora
+        </button>
+      </div>
+
+      <section class="insights-section">
+        <div class="section-label">Padroes iniciais</div>
+        <div class="insights-grid" id="insights-grid">
+          <article class="insight-card">
+            <span class="insight-label">Status</span>
+            <strong class="insight-value">Sem dados ainda</strong>
+            <p class="insight-text">Quando voce registrar alguns dias, o EndoSystem vai mostrar padroes simples e honestos.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="history-section">
+        <div class="section-label">Historico recente</div>
+        <div class="history-list" id="history-list">
+          <article class="history-empty">
+            Seu historico vai aparecer aqui. Entender o corpo nao deveria exigir tanta energia.
+          </article>
+        </div>
+      </section>
+    </div>
+
+    <div class="screen-confirm" id="screen-confirm">
+      <div class="confirm-icon">OK</div>
+      <h2 class="confirm-title">Registrado.</h2>
+      <p class="confirm-sub" id="confirm-text">Seu corpo foi ouvido hoje.</p>
+
+      <div class="validation-strip">
+        <p class="vs-text" id="validation-text">O que voce sente e real. Sempre.</p>
+      </div>
+
+      <div class="suggestion-card">
+        <div class="sg-label">Protocolo do dia</div>
+        <div class="sg-title" id="sg-title">Hora de reduzir a carga</div>
+        <div class="sg-text" id="sg-text">
+          Vamos usar um protocolo base, claro e honesto. Apenas apoio util para este momento.
+        </div>
+      </div>
+
+      <div class="share-card">
+        <div class="sg-label">EndoRed | opt-in</div>
+        <p class="share-copy" id="share-preview">Se voce quiser, posso preparar uma mensagem curta para sua rede de apoio.</p>
+        <button class="btn-share" type="button" onclick="copyShareMessage()">Copiar mensagem para minha rede</button>
+      </div>
+
+      <button class="btn-back" type="button" onclick="resetApp()">Voltar ao check-in</button>
+    </div>
+
+    <div class="screen-crisis" id="screen-crisis">
+      <div class="breath-circle">
+        <div class="breath-inner"></div>
+      </div>
+      <div class="crisis-instruction">inspire 4 | solte 6</div>
+      <h2 class="crisis-title">Voce esta segura.<br>Isso vai passar.</h2>
+      <p class="crisis-text">
+        Sua dor e real. Nao e exagero. Nao e fraqueza.
+        E uma condicao real, e voce nao deveria carregar isso sozinha.
+      </p>
+
+      <div class="crisis-steps">
+        <div class="crisis-step">
+          <div class="step-num">1</div>
+          <div class="step-text">Busque uma posicao confortavel. A posicao fetal pode ajudar.</div>
+        </div>
+        <div class="crisis-step">
+          <div class="step-num">2</div>
+          <div class="step-text">Use calor local em pelvis ou lombar, se isso aliviar.</div>
+        </div>
+        <div class="crisis-step">
+          <div class="step-num">3</div>
+          <div class="step-text">Tome sua medicacao de resgate apenas se ela ja foi indicada para voce.</div>
+        </div>
+        <div class="crisis-step">
+          <div class="step-num">4</div>
+          <div class="step-text">Avise alguem da sua rede apenas se voce quiser e puder.</div>
+        </div>
+      </div>
+
+      <button class="btn-back" type="button" onclick="hideCrisis()">Ja estou um pouco melhor</button>
+    </div>
+  </div>
+</body>
+</html>
